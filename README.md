@@ -24,6 +24,8 @@ npx tsc --init
 
 The basic tutorial for TypeScript: [W3Schools](https://www.w3schools.com/typescript/index.php).
 
+Adding TypeScript to an Existing Project: [in React Native](https://reactnative.dev/docs/typescript).
+
 - React Native 
 
 ## Database
