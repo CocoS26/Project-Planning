@@ -56,7 +56,8 @@ Considerations:
 
 
 ## Database
-- Oracle SQL
+- Oracle SQL -> requires many packages to use and run on MAC OS
+- Mongo DB
 
 ## Real time messaging
 - https://github.com/FaridSafi/react-native-gifted-chat 
