@@ -21,6 +21,9 @@ By default the TypeScript compiler will print a help message when run in an empt
 ```
 npx tsc --init
 ```
+
+The basic tutorial for TypeScript: [W3Schools](https://www.w3schools.com/typescript/index.php).
+
 - React Native 
 
 ## Database
