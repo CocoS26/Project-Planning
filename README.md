@@ -89,7 +89,15 @@ The cheatsheet for [MongoDB](https://gist.github.com/bradtraversy/f407d642bdc3b3
 - https://github.com/FaridSafi/react-native-gifted-chat 
 
 ## Geolocation
-- Leaflet
+- Obtain location data (longitude and latitude) using postcodes
+- https://api.postcodes.io
+- Added spiking file into repo
+
+### Spiking geolocation
+- Can calculate the distance in km between 2 postcodes
+- Can get location data from GET request to API
+- Can get current longitude and latitude using location data
+    - BLOCKER: finding out if this can be integrated in back end or front end
 
 ## Trello board
 https://trello.com/b/9SQvqDme/farmersmarketplace
