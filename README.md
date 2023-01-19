@@ -26,6 +26,8 @@ The basic tutorial for TypeScript: [W3Schools](https://www.w3schools.com/typescr
 
 Adding TypeScript to an Existing Project: [in React Native](https://reactnative.dev/docs/typescript).
 
+The offical handbook of [TypeScript ](https://www.typescriptlang.org/).
+
 - React Native 
 
 ## Database
