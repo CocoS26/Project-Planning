@@ -54,6 +54,30 @@ Considerations:
 4. iOS deployment can be particularly difficult
 5. There’s no CSS. Instead, every core component takes a style prop that can be customised with a style sheet constructed for JS
 
+- Expo 
+
+Expo is an open-source platform for making universal native apps for Android, iOS, and the web with JavaScript and React.
+
+The basic tutorial for [Expo](https://docs.expo.dev/tutorial/introduction/).
+
+Step 1: Initialize a new Expo app
+
+```
+npx create-expo-app THE-PROJECT-NAME
+cd THE-PROJECT-NAME
+```
+
+Step 2: Install dependencies
+
+```
+npx expo install react-dom react-native-web @expo/webpack-config
+```
+
+Step 3: Run the app on mobile and web
+```
+npx expo start
+```
+Once the development server is running, the easiest way to launch the app is on a physical device with Expo Go. 
 
 ## Database
 - Oracle SQL -> requires many packages to use and run on MAC OS
