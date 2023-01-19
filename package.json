@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/CocoS26/Project-Planning/issues"
   },
-  "homepage": "https://github.com/CocoS26/Project-Planning#readme"
+  "homepage": "https://github.com/CocoS26/Project-Planning#readme",
+  "dependencies": {
+    "axios": "^1.2.2"
+  }
 }
