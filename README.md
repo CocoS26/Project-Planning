@@ -83,6 +83,8 @@ Once the development server is running, the easiest way to launch the app is on 
 - Oracle SQL -> requires many packages to use and run on MAC OS
 - Mongo DB
 
+The cheatsheet for [MongoDB](https://gist.github.com/bradtraversy/f407d642bdc3b31681bc7e56d95485b6).
+
 ## Real time messaging
 - https://github.com/FaridSafi/react-native-gifted-chat 
 
