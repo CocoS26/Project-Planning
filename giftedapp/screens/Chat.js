@@ -4,9 +4,10 @@ import { Avatar } from "react-native-elements";
 import { auth, db } from "../firebase";
 import { signOut } from "firebase/auth";
 import { GiftedChat } from "react-native-gifted-chat";
-import { collection, addDoc, getDocs, query, orderBy, onSnapshot } from 'firebase/firestore';
+import { collection, addDoc, getDocs, query, orderBy, onSnapshot, where } from 'firebase/firestore';
 import firebase from 'firebase/app';
 import { Firestore } from "firebase/firestore";
+
 
 
 const Chat = ({ navigation }) => {
@@ -46,21 +47,20 @@ const Chat = ({ navigation }) => {
       ),
       
     });
-    const q = query(collection(db, 'chats'), orderBy('createdAt', 'desc'));
+    const q = query(collection(db, 'chats'), where('user._id', "==" , "josh@gmail.com" ), orderBy('createdAt', 'desc'));
     const unsubscribe = onSnapshot(q, (snapshot) => 
-    setMessages(
-    snapshot.docs.map(doc =>  
-      const {_id} = doc.data();
-    (
-        {
-        _id: doc.data()._id,
-        createdAt: doc.data().createdAt.toDate(),
-        text: doc.data().text,
-        user: doc.data().user,
-    }
-    )
-    )
-));
+          setMessages(
+            snapshot.docs.map(doc =>  
+              (
+                {
+                _id: doc.data()._id,
+                createdAt: doc.data().createdAt.toDate(),
+                text: doc.data().text,
+                user: doc.data().user,
+              }
+            )
+            )
+        ));
 
 return () => {
   unsubscribe();

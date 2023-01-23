@@ -5,6 +5,7 @@ import { auth } from "../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { getAuth } from "firebase/auth";
 import { StackActions } from "@react-navigation/native";
+// import { MessagesScreen } from './MessagesScreen' 
 
 const Login = ({ navigation }) => {
   const [email, setEmail] = useState("");
@@ -14,7 +15,8 @@ const Login = ({ navigation }) => {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        navigation.navigate("MessagesScreen");
+        console.log(email,"18")
+        navigation.navigate("MessagesScreen", {email:email});
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -24,6 +26,7 @@ const Login = ({ navigation }) => {
  
 
   return (
+    <> 
     <View style={styles.container}>
       <Input
         placeholder="Enter your email"
@@ -48,6 +51,8 @@ const Login = ({ navigation }) => {
       />
     </View>
 
+    </>
+   
   );
 };
 const styles = StyleSheet.create({

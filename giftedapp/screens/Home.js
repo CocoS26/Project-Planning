@@ -9,7 +9,7 @@ const Home= ({ navigation }) =>{
         <Text>Home Screen</Text>
         <Button
         title ="I am a farmer"
-        onPress={()=> navigation.navigate('MessagesScreen')} 
+        onPress={()=> navigation.navigate('Chat')} 
         Style ={styles.button}
         />
          <Button

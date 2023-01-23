@@ -15,7 +15,7 @@ const App = () => {
   return (
     <SafeAreaProvider>
       <NavigationContainer>  
-    <Tabs>
+    {/* <Tabs> */}
       <Stack.Navigator > 
       <Stack.Screen name='Login' component={ Login } />
       <Stack.Screen name='Register' component={ Register } />
@@ -23,7 +23,7 @@ const App = () => {
         <Stack.Screen name='Chat' component={ Chat } />
       <Stack.Screen name='MessagesScreen' component={ MessagesScreen } />
       </Stack.Navigator>
-      </Tabs>
+      {/* </Tabs> */}
     </NavigationContainer>
     </SafeAreaProvider>
     

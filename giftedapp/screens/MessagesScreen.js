@@ -11,6 +11,7 @@ import { Container,
   PostTime,
   MessageText,
   TextSection,} from "../styles/MessageStyles";
+ 
 
 
 
@@ -57,7 +58,9 @@ const Messages = [
     },
   ];
   
-  const MessagesScreen = ({navigation}) => {
+  const MessagesScreen = ({navigation, route}) => {
+     const {email} = route.params
+     console.log(email,"63")
       return (
          <Container>
           <FlatList 
