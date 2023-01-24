@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext , useState } from 'react';
 import { View, StyleSheet } from 'react-native'
 import { Input, Button } from 'react-native-elements';
 import { auth } from '../firebase';
@@ -6,6 +6,7 @@ import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import {getAuth} from 'firebase/auth'
 import { StackActions } from '@react-navigation/native';
 import { Container } from "../styles/MessageStyles";
+import { AuthContext } from '../navigation/AuthProvider'
 
 const Register = ({ navigation }) => {
     const [name, setName] = useState('');

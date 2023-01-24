@@ -3,7 +3,7 @@ import React from "react";
 import { View, Text, StyleSheet, FlatList } from "react-native";
 import { Button } from "react-native-elements";
 
-const ProduceListScrren = ({navigation}) =>{
+const ProduceListScreen = ({navigation}) =>{
     return (
         <View style={styles.container}>
             <Text>Produce List</Text>
@@ -15,7 +15,7 @@ const ProduceListScrren = ({navigation}) =>{
     )
 }
 
-export default ProduceListScrren
+export default ProduceListScreen
 
 const styles= StyleSheet.create({
     container:{

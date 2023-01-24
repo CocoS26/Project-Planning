@@ -6,24 +6,42 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { getAuth } from "firebase/auth";
 import { StackActions } from "@react-navigation/native";
 import { MessagesScreen } from './MessagesScreen' 
+import { AuthContext } from "../navigation/AuthProvider"; 
+import { useContext } from "react";
 
 const Login = ({ navigation }) => {
+  const  userValue  = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isSignedIn, setIsSignedIn] = useState(false)
 
-  const signin = () => {
+  async function signin() {
     const auth = getAuth();
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        console.log(email,"18")
-        navigation.navigate("MessagesScreen", {email:email});
-      })
-      .catch((error) => {
-        const errorMessage = error.message;
-        alert(errorMessage);
-      });
-  };
- 
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      console.log(email, 22)
+      setEmail(email)
+      navigation.navigate("MessagesScreen", {email:email});
+      
+    } catch (e) {
+      console.log(e);
+    }
+  }
+  
+  
+  // const signin = () => {
+  //   const auth = getAuth();
+  //   signInWithEmailAndPassword(auth, email, password)
+  //     .then((userCredential) => {
+  //       userValue.isLoggedIn = true
+  //       console.log(email,"18")
+  //       navigation.navigate("MessagesScreen", {email:email});
+  //     })
+  //     .catch((error) => {
+  //       const errorMessage = error.message;
+  //       alert(errorMessage);
+  //     });
+  // };
 
   return (
     <> 
@@ -90,7 +108,7 @@ export default Login;
 //   const [email, setEmail] = useState();
 //   const [password, setPassword] = useState();
 
-//   const {login} = useContext(AuthContext);
+//   const { login } = useContext(AuthContext);
 
 //   return (
 //     <ScrollView contentContainerStyle={styles.container}>
@@ -101,7 +119,7 @@ export default Login;
 //       <Text style={styles.text}>Farmly</Text>
 
 //       <FormInput
-//         labelValue={email}
+//          labelValue={email}
 //         onChangeText={(userEmail) => setEmail(userEmail)}
 //         placeholderText="Email"
 //         iconType="user"

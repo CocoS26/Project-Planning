@@ -7,13 +7,17 @@ import { GiftedChat } from "react-native-gifted-chat";
 import { collection, addDoc, getDocs, query, orderBy, onSnapshot, where } from 'firebase/firestore';
 import firebase from 'firebase/app';
 import { Firestore } from "firebase/firestore";
-
+import { AuthContext } from "../navigation/AuthProvider"; 
+import { useContext } from "react";
 
 const Chat = ({ navigation }) => {
+  const  userValue  = useContext(AuthContext);
+  console.log(userValue,"188888")
   const [messages, setMessages] = useState([]);
   const signOutNow = () => {
     signOut(auth)
       .then(() => {
+        userValue.isLoggedIn = false
         navigation.navigate("Login");
       })
       .catch((error) => {

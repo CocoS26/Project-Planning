@@ -62,20 +62,7 @@ const Messages = [
   const MessagesScreen = ({navigation, route}) => {
      const {email} = route.params
      console.log(email,"63")
-    //  useEffect(() =>{
-    //   const fetchPosts = async()=>{
-    //     try{
-    //         Firestore()
-    //         .collection('')
-    //         .get()
-    //         .then
-    //     }
-    //   } catch(e){
-    //     console.log(e)
-    //   }
-    //  }, []);
-
-
+     
 
 
       return (
