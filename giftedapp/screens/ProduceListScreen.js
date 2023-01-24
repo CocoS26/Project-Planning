@@ -3,10 +3,10 @@ import React from "react";
 import { View, Text, StyleSheet, FlatList } from "react-native";
 import { Button } from "react-native-elements";
 
-const FarmListScreen = ({navigation}) =>{
+const ProduceListScrren = ({navigation}) =>{
     return (
         <View style={styles.container}>
-            <Text>Farm List</Text>
+            <Text>Produce List</Text>
             <Button
             title = "Click Here"
             onPress={()=>alert('Button Clicked!')}
@@ -15,7 +15,7 @@ const FarmListScreen = ({navigation}) =>{
     )
 }
 
-export default FarmListScreen
+export default ProduceListScrren
 
 const styles= StyleSheet.create({
     container:{

@@ -9,7 +9,6 @@ import firebase from 'firebase/app';
 import { Firestore } from "firebase/firestore";
 
 
-
 const Chat = ({ navigation }) => {
   const [messages, setMessages] = useState([]);
   const signOutNow = () => {
@@ -57,6 +56,7 @@ const Chat = ({ navigation }) => {
                 createdAt: doc.data().createdAt.toDate(),
                 text: doc.data().text,
                 user: doc.data().user,
+                sentTo: doc.data().sentTo,
               }
             )
             )
@@ -78,8 +78,8 @@ return () => {
     }, []);
   const onSend = useCallback((messages = []) => {
     setMessages(previousMessages => GiftedChat.append(previousMessages, messages))
-    const { _id, createdAt, text, user,} = messages[0]
-    addDoc(collection(db, 'chats'), { _id, createdAt,  text, user });
+    const { _id, createdAt, text, user, sentTo} = messages[0]
+    addDoc(collection(db, 'chats'), { _id, createdAt,  text, user, sentTo});
 }, []);
 
 
@@ -93,6 +93,7 @@ return () => {
               _id: auth?.currentUser?.email,
               name: auth?.currentUser?.displayName,
               avatar: auth?.currentUser?.photoURL
+
           }}
       />
   );
