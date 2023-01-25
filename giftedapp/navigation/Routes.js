@@ -12,35 +12,28 @@ import BottomTabNavigator from './TabNavigator';
 import AuthStack from './AuthStack';
 import AppStack from './AppStack';
 import { AuthContext } from "../navigation/AuthProvider"; 
+import { getAuth } from 'firebase/auth';
+import { onAuthStateChanged } from 'firebase/auth';
 
 
 const Stack = createStackNavigator();
 const Routes = () => {
-const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  
+  const {user, setUser} = useContext(AuthContext);
+  const auth = getAuth();
+
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user)=>{
+      setUser(user)
+    });
+  }, []);
  
-  // const signin = () => {
-  //   const auth = getAuth();
-  //   signInWithEmailAndPassword(auth, email, password)
-  //     .then((userCredential) => {
-  //       console.log(email,"18")
-  //       setEmail(email)
-  //       navigation.navigate("MessagesScreen", {email:email});
-  //     })
-  //     .catch((error) => {
-  //       const errorMessage = error.message;
-  //       alert(errorMessage);
-  //     });
-   
-  // };
-  
-console.log(email,"48888")
- 
+
+
+
   return (
     <NavigationContainer>     
-      <MainStackNavigator />
-        {/* <AppStack /> */}
+        {user ? <AppStack /> : <AuthStack />}
     </NavigationContainer>     
   );
 };

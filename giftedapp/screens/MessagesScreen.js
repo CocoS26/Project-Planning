@@ -59,12 +59,8 @@ const Messages = [
     },
   ];
   
-  const MessagesScreen = ({navigation, route}) => {
-     const {email} = route.params
-     console.log(email,"63")
-     
-
-
+  const MessagesScreen = ({navigation}) => {
+  
       return (
          <Container>
           <FlatList 

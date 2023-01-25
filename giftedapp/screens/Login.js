@@ -1,32 +1,42 @@
 import React, { useEffect, useState } from "react";
+import {createStackNavigator} from '@react-navigation/stack'
 import { View, StyleSheet } from "react-native";
 import { Input, Button } from "react-native-elements";
 import { auth } from "../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { getAuth } from "firebase/auth";
 import { StackActions } from "@react-navigation/native";
-import { MessagesScreen } from './MessagesScreen' 
+import  MessagesScreen  from './MessagesScreen' 
 import { AuthContext } from "../navigation/AuthProvider"; 
 import { useContext } from "react";
+import {NavigationContainer} from '@react-navigation/native';
+import AppStack from "../navigation/AppStack";
+const Stack = createStackNavigator();
+
+
+
 
 const Login = ({ navigation }) => {
   const  userValue  = useContext(AuthContext);
+  let {signin} = useContext(AuthContext);
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isSignedIn, setIsSignedIn] = useState(false)
 
-  async function signin() {
-    const auth = getAuth();
-    try {
-      await signInWithEmailAndPassword(auth, email, password);
-      console.log(email, 22)
-      setEmail(email)
-      navigation.navigate("MessagesScreen", {email:email});
+  
+
+  // async function signin() {
+  //   const auth = getAuth();
+  //   try {
+  //     await signInWithEmailAndPassword(auth, email, password);
+  //     console.log(email, password)
+   
       
-    } catch (e) {
-      console.log(e);
-    }
-  }
+      
+  //   } catch (e) {
+  //     console.log(e);
+  //   }
+  // }
   
   
   // const signin = () => {
@@ -61,7 +71,7 @@ const Login = ({ navigation }) => {
         onChangeText={(text) => setPassword(text)}
         secureTextEntry
       />
-      <Button title="sign in" onPress={signin} style={styles.button} />
+      <Button title="sign in" onPress={()=>signin(email,password)} style={styles.button} />
       <Button
         title="register"
         onPress={() => navigation.navigate("Register")}
