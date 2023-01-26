@@ -27,8 +27,6 @@ const MainStackNavigator = ()=>{
 }
 
 
-
-
 const ProduceListNavigator = () => {
     return(
         <Stack.Navigator>
